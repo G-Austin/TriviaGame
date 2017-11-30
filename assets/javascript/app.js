@@ -1,76 +1,149 @@
 
-//
+var panel = $("#quiz-area");
+var counterStart = 30;
 
-function initialScreen() {
-	startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
-	$(".mainArea").html(startScreen);
-}
+//array of questions as objects
+var questions = [
 
-//Timer function to show how much time is remaining for the quiz
-function timer() {
+		{
+		number: 1,
+		question: "Who is the youngest person to ever win the Nobel Peace Prize?",
+		possibility: ["Hillary Clinton", "Sophie Scholl", "Malala Yousafzai", "Faith Bandler"],
+		answer: "Malala Yousafzai"
+},
 
-	var timeLeft = 30;
-	var elem = document.getElementById("timer");
+		{
+		number: 2,
+		question: "Who is the first Indian woman to be launched into space?", 
+		possibility: ["Deepika Padukona", "Kalpana Chawla", "Malala Yousafzai", "Mata Amritanandamayi"],
+		answer: "Kalpana Chawla"
+},
+]
 
-	var timerId = setInterval(countdown, 1000);
 
-	function countdown() {
-	  if (timeLeft == 0) {
-	    clearTimeout(timerId);
-	    totalScreen();
-	  } else {
-	    elem.innerHTML = timeLeft + ' seconds remaining';
-	    timeLeft--;
-	  }
+var timer;
+
+var game = {
+
+	questions: questions,
+	currentQuestion: 0,
+	counter: counterStart,
+	correct: 0,
+	incorrect: 0,
+
+	countdown: function() {
+		game.counter--;
+		$('#counter-number').html(game.counter);
+		if (game.counter === 0) {
+			console.log("Time Up");
+			game.timeUp();
+		}
 	}
-};
 
-function startGame() {
 
-	$("#startButton").on('click', function() {
-      timer();
-      
-    
-      // alert('I have had ' + pbjCount + ' sandwiches.');
-    })
 }
-startGame();
+// function initialScreen() {
+// 	//console.log('lets start the game')
+// 	var $startScreen = $('<p><a class="btn btn-primary btn-lg" href="#" role="button">Press to Begin</a></p>');
+// 	$(".mainArea").append($startScreen);
+// }
 
-// //click function to startGame()
-// function startGame() {
-function totalScreen() {
+// function countdown() {
 	
-}
-// $("#startGame").on("click", function(event) {
-// 	$("#startGame").hide();
+// 	var timer = $(setInterval)
+// }
 
-// document.getElementById("game").style.visibility = "visible";
 
-// 	// timer();
-// 	// generateHTML();
-
-// });
-// console.log(event);
-//Create Timer for length of question
-
+// //Timer function to show how much time is remaining for the quiz
 // function timer() {
-//   var countdown = setTimeout(alertFunc, 3000);
+
+// 	var timeLeft = 30;
+// 	var elem = document.getElementById("timer");
+
+// 	var timerId = setInterval(countdown, 1000);
+
+// 	function countdown() {
+// 	  if (timeLeft == 0) {
+// 	    clearTimeout(timerId);
+// 	    totalScreen();
+// 	  } else {
+// 	    elem.innerHTML = timeLeft + ' seconds remaining';
+// 	    timeLeft--;
+// 	  }
+// 	}
+// };
+// //click function to startGame()
+// function loadQuestion() {
+
+// 	$("#startButton").on('click', function() {
+//      timer(); 
+      
+//       // document.getElementById("possibility").innerHTML = array[1].possibility;
+
+//       for (var i = 0; i < questionArray.length; i++) {
+
+// 	     function count(num) {
+// 	     	var int = setInterval(function(){
+// 		      	document.getElementById("questions").innerHTML = questionArray[i].question;
+// 		      	var $buttonGroup = $('<div class="btn-group" role="group" aria-label="'+questionArray[i].number+'">')
+
+		      	
+// 		      	for (var j = 0; j < questionArray[i].possibility.length; j++) {
+// 		      		var $buttonOption = $('<button type="button" class="btn btn-secondary">'+questionArray[i].possibility[j]+'</button>')
+
+// 		      		$buttonGroup.append($buttonOption);
+// 		      	}
+
+// 		      	$('#possibility').append($buttonGroup);
+
+// 		      	if(num === 0) {
+// 		      		clearInterval(int)
+// 		      	}else {
+// 		      		num--;
+// 		      	}
+
+	     		
+// 	     	}, 5000)
+
+
+// 	    }
+
+
+// 	  }
+
+// 	count(5);
+
+// 	console.log(count);
+// 	 })
+
 // }
-
-// function alertFunc() {
-//   alert("Hello!");
-// }
+// // startGame();
 
 
+// //<div class="btn-group" role="group" aria-label="Basic example">
+// //   <button type="button" class="btn btn-secondary">Left</button>
+// //   <button type="button" class="btn btn-secondary">Middle</button>
+// //   <button type="button" class="btn btn-secondary">Right</button>
+// // </div>
+
+// // function userChoice() {
+
+
+// // }
+
+// // function totalScreen() {
+
+// // }
 
 
 
-//Correct Answer loop/counter
 
-//Incorrect answer loop/counter
+// //Correct Answer loop/counter
+
+// //Incorrect answer loop/counter
 
 
-//Can only choose one answer
+// //Can only choose one answer
 
 
 
