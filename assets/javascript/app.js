@@ -117,8 +117,10 @@ function loadQuestion() {
 // }
 
 
-
-
+//"Who is the first woman to summit Mt. Everest?"
+//["Liv Arnesen", "Ann Bancroft", "Venus Williams", "Junko Tabei"]
+//"Junko Tabei"
+//"<img class='gif center-block' src='https://i.pinimg.com/474x/46/6a/a1/466aa11d84ba17e8727b35f81c335904--half-the-sky-everest.jpg'>"
 //Correct Answer loop/counter
 
 //Incorrect answer loop/counter

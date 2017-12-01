@@ -4,10 +4,20 @@ var timeoutCount = 0
 var correctCount = 0
 var incorrectCount = 0
 
-var questionArray = ["Who is the youngest person to ever win the Nobel Peace Prize?", "Who is the first Indian woman to be launched into space?"];
-var answerArray = [["Hillary Clinton", "Sophie Scholl", "Malala Yousafzai", "Faith Bandler"], ["Deepika Padukona", "Kalpana Chawla", "Malala Yousafzai", "Mata Amritanandamayi"]];
-var correctAnswer = ["Malala Yousafzai", "Kalpana Chawla", ];
+var questionArray = ["Who is the youngest person to ever win the Nobel Peace Prize?", 
+					 "How old was Malala when she was awarded the Nobel Peace Prize?", 
+					 "Who is the first Indian woman to be launched into space?"];
+
+var answerArray = [["Hillary Clinton", "Sophie Scholl", "Malala Yousafzai", "Faith Bandler"],
+				   ["17", "14", "22", "18"],
+				   ["Deepika Padukona", "Kalpana Chawla", "Malala Yousafzai", "Mata Amritanandamayi"]];
+
+var correctAnswer = ["Malala Yousafzai",
+			 		 "17",
+			 		 "Kalpana Chawla", ];
+			 		 
 var gifArray = ["<img class='gif center-block' src='http://38.media.tumblr.com/18289bbca00bad331d4c34d0bba8d77a/tumblr_nq6zgsmRpk1qc8jh0o7_540.gif'>",
+				"<img class='gif center-block' src='http://38.media.tumblr.com/18289bbca00bad331d4c34d0bba8d77a/tumblr_nq6zgsmRpk1qc8jh0o7_540.gif'>",
 				"<img class='gif center-block' src='https://i.ytimg.com/vi/ZlPh4Rnv9cY/hqdefault.jpg'>"];
 
 
@@ -47,10 +57,11 @@ function timeout(arg) {
 	timeoutCount++;
 	quizPage = "<p class='timer text-center'>Time Remaining: <span class='countdown'>" + seconds + "</span></p><p class='text-center'>" + "Out of time! The correct answer was " +  correctAnswer[questionCount] + "</p><p class='gif'>"+ gifArray[questionCount] + "</p>"
 	$('#quiz-area').html(quizPage);
+	setTimeout(questionInterval, 3000);
 }
 
 function questionInterval(arg) {
-	if (questionCount < 1) {
+	if (questionCount < 2) {
 	console.log('questionInterval() ' + 'Hopefully I got this');
 		questionCount++;
 		game();
@@ -79,7 +90,7 @@ function incorrect(arg) {
 
 function endGame(arg) {
 	console.log('endGame() ' + 'game over!')
-	quizPage = "<p class='timer text-center'>Time Remaining: <span class='countdown'>" + seconds + "</span></p><p class='text-center'>" + "<p>Game Over!</p>" + "<br>" + "<p>Here are your results! " + "<br>" +  "Correct Answers: " + correctCount + "</p> <p class='text-center'>"+ "Incorrect Answers: " + incorrectCount + "</p>" + "<p class='text-center'>" + "Blank Answers: " + timeoutCount + "</p>" + "<p class='buttonDiv text-center'><a class='resetBtn btn btn-primary btn-lg btn-block ' href='#' role='button'>Take the Quiz Again!</a></p>"
+	quizPage = "<p class='timer' class='text-center'>Time Remaining: <span class='countdown'>" + seconds + "</span></p><p class='text-center'>" + "<h1>Game Over!</h1>" + "<h3>Here are your results!</h3> "+ "<h4> Correct Answers: " + correctCount + "</h4> <p class='text-center'>"+ "Incorrect Answers: " + incorrectCount + "</p>" + "<p class='text-center'>" + "Blank Answers: " + timeoutCount + "</p>" + "<p class='buttonDiv text-center'><a class='resetBtn btn btn-primary btn-lg btn-block ' href='#' role='button'>Take the Quiz Again!</a></p>"
 	$('#quiz-area').html(quizPage);
 }
 
