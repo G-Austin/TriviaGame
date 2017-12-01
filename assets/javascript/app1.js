@@ -50,11 +50,11 @@ function timeout(arg) {
 }
 
 function questionInterval(arg) {
-	if (questionCount < 3) {
+	if (questionCount < 1) {
 	console.log('questionInterval() ' + 'Hopefully I got this');
 		questionCount++;
 		game();
-		// seconds = 10;
+		seconds = 10;
 		countdown();
 	}
 	else {
@@ -79,7 +79,7 @@ function incorrect(arg) {
 
 function endGame(arg) {
 	console.log('endGame() ' + 'game over!')
-	quizPage = "<p class='timer text-center'>Time Remaining: <span class='countdown'>" + seconds + "</span></p><p class='text-center'>" + "Game Over! Here are your results! " +  correct[questionCount] + "</p><p class='text-center'>"+ incorrect[questionCount] + "</p>" + "<p class='text-center'>"+ timout[questionCount] + "</p>" + "<p class='buttonDiv text-center'><a class='resetBtn btn btn-primary btn-lg btn-block ' href='#' role='button'>Take the Quiz Again!</a></p>"
+	quizPage = "<p class='timer text-center'>Time Remaining: <span class='countdown'>" + seconds + "</span></p><p class='text-center'>" + "<p>Game Over!</p>" + "<br>" + "<p>Here are your results! " + "<br>" +  "Correct Answers: " + correctCount + "</p> <p class='text-center'>"+ "Incorrect Answers: " + incorrectCount + "</p>" + "<p class='text-center'>" + "Blank Answers: " + timeoutCount + "</p>" + "<p class='buttonDiv text-center'><a class='resetBtn btn btn-primary btn-lg btn-block ' href='#' role='button'>Take the Quiz Again!</a></p>"
 	$('#quiz-area').html(quizPage);
 }
 

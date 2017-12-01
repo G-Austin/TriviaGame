@@ -1,9 +1,7 @@
 
-var panel = $("#quiz-area");
-var counterStart = 30;
 
 //array of questions as objects
-var questions = [
+var questionArray = [
 
 		{
 		number: 1,
@@ -21,129 +19,112 @@ var questions = [
 ]
 
 
-var timer;
 
-var game = {
-
-	questions: questions,
-	currentQuestion: 0,
-	counter: counterStart,
-	correct: 0,
-	incorrect: 0,
-
-	countdown: function() {
-		game.counter--;
-		$('#counter-number').html(game.counter);
-		if (game.counter === 0) {
-			console.log("Time Up");
-			game.timeUp();
-		}
-	}
-
-
+function initialScreen() {
+	//console.log('lets start the game')
+	var $startScreen = $('<p><a class="btn btn-primary btn-lg" href="#" role="button">Press to Begin</a></p>');
+	$(".mainArea").append($startScreen);
 }
-// function initialScreen() {
-// 	//console.log('lets start the game')
-// 	var $startScreen = $('<p><a class="btn btn-primary btn-lg" href="#" role="button">Press to Begin</a></p>');
-// 	$(".mainArea").append($startScreen);
-// }
 
-// function countdown() {
+function countdown() {
 	
-// 	var timer = $(setInterval)
-// }
+	var timer = $(setInterval)
+}
 
 
-// //Timer function to show how much time is remaining for the quiz
-// function timer() {
+//Timer function to show how much time is remaining for the quiz
+function timer() {
 
-// 	var timeLeft = 30;
-// 	var elem = document.getElementById("timer");
+	var timeLeft = 30;
+	var elem = document.getElementById("timer");
 
-// 	var timerId = setInterval(countdown, 1000);
+	var timerId = setInterval(countdown, 1000);
 
-// 	function countdown() {
-// 	  if (timeLeft == 0) {
-// 	    clearTimeout(timerId);
-// 	    totalScreen();
-// 	  } else {
-// 	    elem.innerHTML = timeLeft + ' seconds remaining';
-// 	    timeLeft--;
-// 	  }
-// 	}
-// };
-// //click function to startGame()
-// function loadQuestion() {
+	function countdown() {
+	  if (timeLeft == 0) {
+	    clearTimeout(timerId);
+	    totalScreen();
+	  } else {
+	    elem.innerHTML = timeLeft + ' seconds remaining';
+	    timeLeft--;
+	  }
+	}
+};
+//click function to startGame()
 
-// 	$("#startButton").on('click', function() {
-//      timer(); 
+
+
+
+
+
+
+function loadQuestion() {
+
+	$("#startButton").on('click', function() {
+     timer(); 
       
-//       // document.getElementById("possibility").innerHTML = array[1].possibility;
+      // document.getElementById("possibility").innerHTML = array[1].possibility;
 
-//       for (var i = 0; i < questionArray.length; i++) {
+      for (var i = 0; i < questionArray.length; i++) {
 
-// 	     function count(num) {
-// 	     	var int = setInterval(function(){
-// 		      	document.getElementById("questions").innerHTML = questionArray[i].question;
-// 		      	var $buttonGroup = $('<div class="btn-group" role="group" aria-label="'+questionArray[i].number+'">')
+	     function count(num) {
+	     	var int = setInterval(function(){
+		      	document.getElementById("questions").innerHTML = questionArray[i].question;
+		      	var $buttonGroup = $('<div class="btn-group" role="group" aria-label="'+questionArray[i].number+'">')
 
 		      	
-// 		      	for (var j = 0; j < questionArray[i].possibility.length; j++) {
-// 		      		var $buttonOption = $('<button type="button" class="btn btn-secondary">'+questionArray[i].possibility[j]+'</button>')
+		      	for (var j = 0; j < questionArray[i].possibility.length; j++) {
+		      		var $buttonOption = $('<button type="button" class="btn btn-secondary">'+questionArray[i].possibility[j]+'</button>')
 
-// 		      		$buttonGroup.append($buttonOption);
-// 		      	}
+		      		$buttonGroup.append($buttonOption);
+		      	}
 
-// 		      	$('#possibility').append($buttonGroup);
+		      	$('#possibility').append($buttonGroup);
 
-// 		      	if(num === 0) {
-// 		      		clearInterval(int)
-// 		      	}else {
-// 		      		num--;
-// 		      	}
+		      	if(num === 0) {
+		      		clearInterval(int)
+		      	}else {
+		      		num--;
+		      	}
 
 	     		
-// 	     	}, 5000)
+	     	}, 5000)
 
 
-// 	    }
+	    }
 
 
-// 	  }
+	  }
 
-// 	count(5);
+	count(5);
 
-// 	console.log(count);
-// 	 })
+	console.log(count);
+	 })
+
+}
+// startGame();
+
+
+
+
+// function userChoice() {
+
 
 // }
-// // startGame();
 
+// function totalScreen() {
 
-// //<div class="btn-group" role="group" aria-label="Basic example">
-// //   <button type="button" class="btn btn-secondary">Left</button>
-// //   <button type="button" class="btn btn-secondary">Middle</button>
-// //   <button type="button" class="btn btn-secondary">Right</button>
-// // </div>
-
-// // function userChoice() {
-
-
-// // }
-
-// // function totalScreen() {
-
-// // }
+// }
 
 
 
 
-// //Correct Answer loop/counter
+//Correct Answer loop/counter
 
-// //Incorrect answer loop/counter
+//Incorrect answer loop/counter
 
 
-// //Can only choose one answer
+//Can only choose one answer
 
 
 
